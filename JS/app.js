@@ -30,8 +30,12 @@ document.getElementById("deposit-btn").addEventListener("click", () => {
   let deposit_Int = getInteger("deposit-input", false);
   let result = deposit_Dis + deposit_Int;
 
-  document.getElementById("deposit-display").innerText = result;
-  updateBal(deposit_Int, true);
+  if (isNaN(deposit_Int) || deposit_Int < 0) {
+    alert("Please enter a valid Integer :'(");
+  } else {
+    document.getElementById("deposit-display").innerText = result;
+    updateBal(deposit_Int, true);
+  }
 });
 
 /* =========== Withdraw Button =========== */
@@ -40,6 +44,10 @@ document.getElementById("withdraw-btn").addEventListener("click", () => {
   let withdraw_Int = getInteger("withdraw-input", false);
   let result = withdraw_Dis + withdraw_Int;
 
-  document.getElementById("withdraw-display").innerText = result;
-  updateBal(withdraw_Int, false);
+  if (isNaN(withdraw_Int) || withdraw_Int < 0) {
+    alert("Please enter a valid Integer :'(");
+  } else {
+    document.getElementById("withdraw-display").innerText = result;
+    updateBal(withdraw_Int, false);
+  }
 });
